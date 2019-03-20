@@ -15,6 +15,9 @@ xml = xml.replace(/\${name}/g, args.name);
 xml = xml.replace(/\${protocol}/g, args.protocol);
 xml = xml.replace(/\${domain}/g, args.domain);
 
+if (exec('find dist').code !== 0) {
+    exec('mkdir dist');
+}
 
 fs.writeFileSync('dist/SEMPMobile_' + args.appname + '.plist', xml);
 
